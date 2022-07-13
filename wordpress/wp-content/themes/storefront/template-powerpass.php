@@ -32,12 +32,14 @@ get_header(); ?>
 			//do_action( 'homepage' );
 			
 			$user = wp_get_current_user();
+			var_dump($user->roles);
 			if (isset($_POST['submit'])) {
-				if(isset($_POST['account_id'])) {					
+				if(isset($_POST['account_id']) && $_POST['account_id']) {					
 					$user->add_role('powerpass');					
 					echo $_POST['account_id'];
 				} else {
 					$user->remove_role('powerpass');
+					echo "removed";
 				}				
 			}
 			?>
