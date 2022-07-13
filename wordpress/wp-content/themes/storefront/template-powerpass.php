@@ -32,7 +32,6 @@ get_header(); ?>
 			//do_action( 'homepage' );
 			
 			$user = wp_get_current_user();
-			var_dump($user->roles);
 			if (isset($_POST['submit'])) {
 				if(isset($_POST['account_id']) && $_POST['account_id']) {					
 					$user->add_role('powerpass');					
@@ -41,7 +40,8 @@ get_header(); ?>
 					$user->remove_role('powerpass');
 					echo "removed";
 				}				
-			}
+			}			
+			var_dump($user->roles);
 			?>
 			<form id="powerpass" action="" method="POST">
 				<input type="text" name="account_id" value="" />
