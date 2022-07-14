@@ -24,6 +24,7 @@ stages:
       displayName: Build an image
       inputs:
         command: buildAndPush
+        repository: hyan36/biggreenbutton:latest
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           hyan36/biggreenbutton:latest
