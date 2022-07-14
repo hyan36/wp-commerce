@@ -26,4 +26,4 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
-          hyan36/biggreenbutton:$(Build.BuildId)
+          hyan36/biggreenbutton:latest
