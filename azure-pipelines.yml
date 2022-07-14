@@ -25,6 +25,7 @@ stages:
       inputs:
         command: buildAndPush
         repository: hyan36/biggreenbutton
+        containerRegistry: $(dockerRegistryServiceConnection)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           latest
