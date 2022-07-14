@@ -24,10 +24,10 @@ stages:
       displayName: Build an image
       inputs:
         command: buildAndPush
-        repository: hyan36/biggreenbutton:latest
+        repository: hyan36/biggreenbutton
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
-          hyan36/biggreenbutton:latest
+          latest
 - stage: Deploy
   displayName: Deploy
   jobs:
