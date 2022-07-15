@@ -54,15 +54,16 @@ get_header(); ?>
 					$user->remove_role('powerpass');
 					echo "<h1>Removed</h1>";
 				}				
-			}			
-            if (!$user) {
-				echo "<h1>Please login to use this function</h1>";
 			}
+            		if (!is_user_logged_in()) {
+				echo "<h1>Please login to use this function</h1>";
+			} else {
 			?>
 			<form id="powerpass" action="" method="POST">
 				<input type="text" name="account_id" value="" />
 				<input type="submit" name="submit" value="submit" />
 			</form>
+			<?php } ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php
