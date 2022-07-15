@@ -33,17 +33,17 @@ get_header(); ?>
 			
 			$user = wp_get_current_user();
 			if (isset($_POST['submit'])) {
-				if(isset($_POST['account_id']) && $_POST['account_id']) {					
-					$user->add_role('powerpass');	
+				if(isset($_POST['account_id']) && $_POST['account_id']) {
 					$account_id = $_POST['account_id'];	
 					$url = "https://bunningspowerpasshackday.azurewebsites.net/powerpass/" . $account_id;
 					
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);					
-					$output = curl_exec($ch);
-					if (!curl_errno($ch)) {
-						$result = json_decode($output);
+					$output = curl_exec($ch);					
+					$result = json_decode($output);
+					if (!curl_errno($ch) && array_key_exists('name', $result)) {
+						$user->add_role('powerpass');
 						echo "<h1>Thank You,  {$result->name}</h1> <p> we've validated your ID. </p>";
 					} else {
 						echo "<h1>Invalid PowerPass Info </h1>";
